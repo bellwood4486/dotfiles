@@ -1,0 +1,4 @@
+echo '.zshrc_msys'
+
+# alias
+alias ls='ls -hF --color=tty'

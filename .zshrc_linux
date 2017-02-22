@@ -1,0 +1,4 @@
+echo '.zshrc_linux'
+
+# alias
+alias ls='ls -hF --color'
