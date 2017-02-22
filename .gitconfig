@@ -1,0 +1,16 @@
+########################################################
+# 以下の設定は SYSTEM プロパティに設定すること
+# - user.email
+########################################################
+[color]
+	ui = true
+[alias]
+	co = checkout
+	ci = commit
+	st = status --short --branch
+  origst = status
+	br = branch
+	vlog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
+	slog = log --graph --decorate --oneline
+[user]
+	name = SUZUKI Yoshiharu
