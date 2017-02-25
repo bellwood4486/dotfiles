@@ -1,0 +1,9 @@
+echo '.bash_darwin'
+
+alias o='open'
+alias ls='ls -hFG'
+# for Emacs
+alias cuiemacs="TERM=xterm-256color /usr/local/bin/emacs -nw"
+alias emacsclient='/usr/local/bin/emacsclient'
+alias emacs='emacsclient -n'
+alias e='emacs'

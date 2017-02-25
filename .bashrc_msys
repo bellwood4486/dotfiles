@@ -1,0 +1,4 @@
+echo '.bash_msys'
+
+alias o='explorer'
+alias ls='ls -hF --color=tty'

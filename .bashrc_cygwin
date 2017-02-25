@@ -1,0 +1,4 @@
+echo '.bash_cygwin'
+
+alias o='cygstart'
+alias ls='ls -hF --color=tty'
