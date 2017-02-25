@@ -3,16 +3,16 @@ echo '.zshrc'
 # 環境変数
 export LANG=ja_JP.UTF-8
 if [ -f $(which vim) ]; then
-    export EDITOR=vim
+  export EDITOR=vim
 fi
 
 # パス
 typeset -U path cdpath fpath manpath # 重複する要素を自動的に削除
 path=(
-  $HOME/bin(N-/)
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  $path
+$HOME/bin(N-/)
+/usr/local/bin(N-/)
+/usr/local/sbin(N-/)
+$path
 )
 
 # プロンプト
@@ -22,13 +22,13 @@ PROMPT2="%_%# "
 SPROMPT="%r is correct? [n,y,a,e]: "
 # ウィンドウのタイトルを動的に変える
 case "${TERM}" in
-    kterm*|xterm)
-        autoload -Uz add-zsh-hook
-        function _update_window_title() {
-            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD/#$HOME/~}\007"
-        }
-        add-zsh-hook precmd _update_window_title
-        ;;
+  kterm*|xterm)
+    autoload -Uz add-zsh-hook
+    function _update_window_title() {
+      echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD/#$HOME/~}\007"
+    }
+    add-zsh-hook precmd _update_window_title
+    ;;
 esac
 
 # gitのブランチを表示(とりあえずコピペ)
@@ -43,16 +43,16 @@ zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
 zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
 if is-at-least 4.3.10; then
-    zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' stagedstr "+"
-    zstyle ':vcs_info:git:*' unstagedstr "-"
-    zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-    zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr "+"
+  zstyle ':vcs_info:git:*' unstagedstr "-"
+  zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
+  zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 fi
 function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 add-zsh-hook precmd _update_vcs_info_msg
 RPROMPT="%1(v|%F{green}%1v%f|)"

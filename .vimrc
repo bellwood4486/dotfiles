@@ -303,7 +303,7 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 augroup MyAutoCmd
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown " markdown
-  autocmd FileType {vim,xml,html,build,sh,javascript,css,plantuml,json} setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType {vim,xml,html,build,sh,zsh,javascript,css,plantuml,json} setlocal tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType {java,cpp} setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufEnter * silent! lcd %:p:h " set autochdirだとプラグインによっては動作しない場合があるため
   autocmd FileType gitcommit setlocal formatoptions=q

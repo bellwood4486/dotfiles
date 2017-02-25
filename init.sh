@@ -4,10 +4,10 @@ readonly DOTFILES_DIR=$(cd $(dirname $0) && pwd)
 
 edition=unknown;
 case "$(uname)" in
-        CYGWIN*) edition=cygwin ;;
-        Darwin*) edition=darwin ;;
-        Linux*)  edition=linux ;;
-        MSYS*) edition=msys ;;
+  CYGWIN*) edition=cygwin ;;
+  Darwin*) edition=darwin ;;
+  Linux*)  edition=linux ;;
+  MSYS*) edition=msys ;;
 esac
 
 ln --symbolic --force --verbose --target-directory=$HOME \
