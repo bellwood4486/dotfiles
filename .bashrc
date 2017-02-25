@@ -41,46 +41,5 @@ if $darwin; then
     alias e='emacs'
 fi
 
-##################################################################
-#                   環境固有設定のロード                         #
-##################################################################
-
-cygwin=false;
-darwin=false;
-linux=false;
-msys=false;
-case "$(uname)" in
-        CYGWIN*) cygwin=true ;;
-        Darwin*) darwin=true ;;
-        Linux*)  linux=true ;;
-        MSYS*) msys=true ;;
-esac
-
-if $cygwin; then
-        if [ -f ~/.bashrc_cygwin ]; then
-                . ~/.bashrc_cygwin
-        fi
-fi
-
-if $darwin; then
-        if [ -f ~/.bashrc_darwin ]; then
-                . ~/.bashrc_darwin
-        fi
-fi
-
-if $linux; then
-        if [ -f ~/.bashrc_linux ]; then
-                . ~/.bashrc_linux
-        fi
-fi
-
-if $msys; then
-        if [ -f ~/.bashrc_msys ]; then
-                . ~/.bashrc_msys
-        fi
-fi
-
-# ローカル固有の設定があればそれを読む
-if [ -f ~/.bashrc_local ]; then
-        . ~/.bashrc_local
-fi
+# 環境固有設定のロード
+for file in $(\ls .bashrc_*); do source $file; done

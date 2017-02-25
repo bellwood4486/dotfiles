@@ -113,46 +113,5 @@ alias mkdir='mkdir -p'
 # maven
 alias dmvn='MAVEN_OPTS="-Xnoagent -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n" mvn'
 
-##################################################################
-#                   環境固有設定のロード                         #
-##################################################################
-
-cygwin=false;
-darwin=false;
-linux=false;
-msys=false;
-case "$(uname)" in
-        CYGWIN*) cygwin=true ;;
-        Darwin*) darwin=true ;;
-        Linux*)  linux=true ;;
-        MSYS*) msys=true ;;
-esac
-
-if $cygwin; then
-        if [ -f ~/.zshrc_cygwin ]; then
-                . ~/.zshrc_cygwin
-        fi
-fi
-
-if $darwin; then
-        if [ -f ~/.zshrc_darwin ]; then
-                . ~/.zshrc_darwin
-        fi
-fi
-
-if $linux; then
-        if [ -f ~/.zshrc_linux ]; then
-                . ~/.zshrc_linux
-        fi
-fi
-
-if $msys; then
-        if [ -f ~/.zshrc_msys ]; then
-                . ~/.zshrc_msys
-        fi
-fi
-
-# ローカル固有の設定があればそれを読む
-if [ -f ~/.zshrc_local ]; then
-        . ~/.zshrc_local
-fi
+# 環境固有設定のロード
+for file in $(\ls .zshrc_*); do source $file; done
