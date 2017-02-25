@@ -85,7 +85,7 @@ set autoindent "改行時に前の行のインデントを継続する
 "
 " NeoBundleは git submodule add でこのディレクトリ以下に取得しておく
 if has('vim_starting')
-  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/dotfiles/neobundle.vim/
 endif
 " NeoBundleが取得するバンドルは、ドットファイルと同じ管理下には置かない。
 call neobundle#begin(expand('~/.vim/bundle/'))
