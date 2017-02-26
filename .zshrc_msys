@@ -2,3 +2,19 @@ echo '.zshrc_msys'
 
 # alias
 alias ls='ls -hF --color=tty'
+alias o='explorer'
+
+# Windowsコマンド文字化け対策
+function wincmd()
+{
+    CMD=$1
+    shift
+    $CMD $* 2>&1 | iconv -f CP932 -t UTF-8
+}
+alias cmd='winpty cmd'
+alias psh='winpty powershell'
+alias ipconfig='wincmd ipconfig'
+alias netstat='wincmd netstat'
+alias netsh='wincmd netsh'
+# pingのコマンド名混同を避けるため絶対パスで指定
+alias ping='wincmd /c/windows/system32/ping'
