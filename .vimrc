@@ -367,3 +367,9 @@ set foldmethod=marker
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
+" OS独自設定の読み込み {{{
+"
+if has('unix')
+  source ~/.vimrc_linux
+endif
+

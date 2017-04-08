@@ -1,0 +1,6 @@
+" Insertモードから抜けるときにIMEをオフにする(fcitx用)
+" http://qiita.com/hoshitocat/items/a80d613ef73b7a06ec50
+function! ImInActivate()
+  call system('fcitx-remote -c')
+endfunction
+inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
