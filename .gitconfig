@@ -14,3 +14,7 @@
 	slog = log --graph --decorate --oneline
 [user]
 	name = SUZUKI Yoshiharu
+[merge]
+	ff = false
+[pull]
+	ff = only
