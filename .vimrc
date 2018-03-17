@@ -85,7 +85,7 @@ set autoindent "改行時に前の行のインデントを継続する
 "
 " NeoBundleは git submodule add でこのディレクトリ以下に取得しておく
 if has('vim_starting')
-  set runtimepath+=~/dotfiles/neobundle.vim/
+  set runtimepath+=~/.dotfiles/neobundle.vim/
 endif
 " NeoBundleが取得するバンドルは、ドットファイルと同じ管理下には置かない。
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -275,8 +275,11 @@ endfunction
 
 " カラースキーム {{{
 "
-set background=dark
-colorscheme hybrid
+" http://qiita.com/pepoipod/items/e058b098af389ddb451f
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
+" colorscheme hybrid
+" colorscheme jellybeans
 "}}}
 
 " VimFiler {{{
@@ -370,6 +373,6 @@ set foldnestmax=10      " 10 nested fold max
 " OS独自設定の読み込み {{{
 "
 if has('unix')
-  source ~/.vimrc_linux
+  source ~/.vimrc_unix
 endif
 
